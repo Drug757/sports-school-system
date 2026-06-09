@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>✅ Отметить посещаемость</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Участник:</label>
+    <select name="student">
+        {% for s in students %}
+            <option value="{{ s.id }}">{{ s.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Группа:</label>
+    <select name="group">
+        {% for g in groups %}
+            <option value="{{ g.id }}">{{ g.name }}</option>
+        {% endfor %}
+    </select>
+
+    <button class="btn" type="submit">Отметить</button>
+</form>
+
+{% endblock %}

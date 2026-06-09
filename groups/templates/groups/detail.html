@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>👥 {{ group.name }}</h2>
+
+<h3>Участники:</h3>
+
+{% for user in group.participants.all %}
+    <div class="card">
+        {{ user.name }}
+        <a class="btn" href="/groups/{{ group.id }}/remove/{{ user.id }}/">❌ Удалить</a>
+    </div>
+{% empty %}
+    <div class="card">Нет участников</div>
+{% endfor %}
+
+<h3>➕ Добавить участника:</h3>
+
+{% for user in users %}
+    <div class="card">
+        {{ user.name }}
+        <a class="btn" href="/groups/{{ group.id }}/add/{{ user.id }}/">Добавить</a>
+    </div>
+{% endfor %}
+
+{% endblock %}

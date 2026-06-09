@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>➕ Создать пользователя</h2>
+
+<form method="post" class="card">
+    {% csrf_token %}
+
+    {{ form.name.label }}<br>
+    {{ form.name }}<br><br>
+
+    {{ form.role.label }}<br>
+    {{ form.role }}<br><br>
+
+    <div id="group-field">
+        {{ form.group.label }}<br>
+        {{ form.group }}<br><br>
+    </div>
+
+    <button class="btn" type="submit">Создать</button>
+</form>
+
+<script>
+    const roleField = document.getElementById("id_role");
+    const groupField = document.getElementById("group-field");
+
+    function toggleGroup() {
+        if (roleField.value === "student") {
+            groupField.style.display = "block";
+        } else {
+            groupField.style.display = "none";
+        }
+    }
+
+    roleField.addEventListener("change", toggleGroup);
+    toggleGroup();
+</script>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>📊 Отметить посещаемость</h2>
+
+<p><strong>Группа:</strong> {{ lesson.group.name }}</p>
+<p><strong>Дата:</strong> {{ lesson.date }}</p>
+
+<form method="post">
+    {% csrf_token %}
+
+    {% for student in students %}
+        <div class="card">
+            <strong>{{ student.name }}</strong><br>
+
+            <label>
+                <input type="radio" name="student_{{ student.id }}" value="present">
+                Был
+            </label>
+
+            <label>
+                <input type="radio" name="student_{{ student.id }}" value="absent">
+                Не был
+            </label>
+        </div>
+    {% endfor %}
+
+    <button class="btn" type="submit">Сохранить</button>
+</form>
+
+{% endblock %}

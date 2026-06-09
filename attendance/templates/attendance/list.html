@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>📊 Посещаемость</h2>
+
+{% for a in attendance %}
+    <div class="card">
+        <strong>{{ a.student.name }}</strong><br>
+
+        🏫 Группа: {{ a.lesson.group.name }}<br>
+        📅 Дата: {{ a.lesson.date }}  
+        🕒 {{ a.lesson.time }}<br><br>
+
+        {% if a.present %}
+            <span style="color: green;">✔ Присутствовал</span>
+        {% else %}
+            <span style="color: red;">✖ Отсутствовал</span>
+        {% endif %}
+    </div>
+{% empty %}
+    <p>Нет данных</p>
+{% endfor %}
+
+{% endblock %}

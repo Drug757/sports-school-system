@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sports School</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        /* HEADER */
+        .navbar {
+            background: #2c3e50;
+            padding: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background: #34495e;
+        }
+
+        /* CONTAINER */
+        .container {
+            padding: 30px;
+        }
+
+        /* CARDS */
+        .card {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            margin: 5px 0;
+            padding: 8px 14px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+
+        h1 {
+            margin: 0;
+            color: #ecf0f1;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <h1>🏫 Sports School</h1>
+
+    <a href="/groups/">Группы</a>
+    <a href="/lessons/">Занятия</a>
+    <a href="/attendance/">Посещаемость</a>
+    <a href="/users/create/">+ Пользователь</a>
+    <a href="/groups/create/">+ Группа</a>
+</div>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

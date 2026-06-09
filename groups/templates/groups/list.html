@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>📋 Группы</h2>
+
+<a class="btn" href="/groups/create/">Создать группу</a>
+
+{% for group in groups %}
+    <div class="card">
+
+        <h3>{{ group.name }}</h3>
+        <p>👨‍🏫 Тренер: {{ group.trainer.name }}</p>
+
+        <strong>Участники:</strong>
+
+        <ul>
+            {% for user in group.participants.all %}
+                <li>
+                    {{ user.name }}
+                    <a class="btn btn-danger" href="/users/delete/{{ user.id }}">Удалить</a>
+                </li>
+            {% empty %}
+                <li>Нет участников</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+{% endfor %}
+
+{% endblock %}
