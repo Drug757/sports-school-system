@@ -5,22 +5,40 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('schedule', '0001_initial'),
-        ('users', '0001_initial'),
+        ("schedule", "0001_initial"),
+        ("users", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Attendance',
+            name="Attendance",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('present', models.BooleanField(default=False)),
-                ('lesson', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='schedule.lesson')),
-                ('student', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='users.user')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("present", models.BooleanField(default=False)),
+                (
+                    "lesson",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="schedule.lesson",
+                    ),
+                ),
+                (
+                    "student",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="users.user"
+                    ),
+                ),
             ],
         ),
     ]

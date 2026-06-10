@@ -7,16 +7,12 @@ class Group(models.Model):
 
     # Тренер группы
     trainer = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name='trainer_groups'
+        User, on_delete=models.CASCADE, related_name="trainer_groups"
     )
 
     # Участники группы
     participants = models.ManyToManyField(
-        User,
-        blank=True,
-        related_name='participant_groups'
+        User, blank=True, related_name="participant_groups"
     )
 
     def __str__(self):
