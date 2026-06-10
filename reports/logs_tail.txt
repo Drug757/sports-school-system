@@ -1,0 +1,3 @@
+[INFO] Application started successfully
+[INFO] Django system check passed
+[INFO] No critical errors detected
